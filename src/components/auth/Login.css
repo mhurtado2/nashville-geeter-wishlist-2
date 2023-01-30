@@ -1,6 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
+
+body {
+    background-image: url('https://static.vecteezy.com/system/resources/previews/002/972/281/original/symbol-of-rock-n-roll-concept-art-of-rock-music-in-monochrome-style-vector.jpg');
+    background-size: cover;
+}
 
 .h1, h1 {
     font-size: 2.5rem;
+    font-family: 'Righteous', cursive;
 }
 
 fieldset {
@@ -13,11 +20,10 @@ fieldset {
 .form--login {
     display: inline-block;
     margin: 0 auto;
-    text-align: left;
 }
 
 .form--login > fieldset > input[type="email"] {
-    width: 25em;
+    width: 96%;
 }
 
 .label--login {
@@ -27,7 +33,7 @@ fieldset {
 
 .form-control {
     display: block;
-    width: 94%;
+    width: 96%;
     height: calc(1.5em + .75rem + 2px);
     padding: .375rem .75rem;
     font-size: 1rem;
@@ -51,12 +57,15 @@ fieldset {
     z-index: 1;
     min-height: 25rem;
     min-width: 45rem;
-    background-color: hsla(0,0%,100%,0.40);
+    background-color: rgba(129, 44, 44, 0.4); 
     background-blend-mode: overlay;
     background-repeat: no-repeat;
+    text-align: center;
 }
 
 .button--close {
     position: relative;
     bottom: -2rem;
 }
+
+
