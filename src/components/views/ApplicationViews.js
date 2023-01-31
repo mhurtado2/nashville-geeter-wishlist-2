@@ -4,6 +4,7 @@ import { AllGear } from '../gear/AllGear'
 import { AmpGear } from '../gear/AmpGear'
 import { GearDetails } from '../gear/GearDetails'
 import { GuitarGear } from '../gear/GuitarGear'
+import { NewGearForm } from '../gear/NewGearForm'
 import { PedalGear } from '../gear/PedalGear'
 
 
@@ -26,6 +27,7 @@ export const ApplicationViews = () => {
         <Route path="pedals" element={<PedalGear />} />
         <Route path="amps" element={<AmpGear />} />
         <Route path="accessories" element={<AccessoryGear />} />
+        <Route path="new" element={<NewGearForm />} />
       </Route>
     </Routes>
   )

@@ -77,7 +77,7 @@
   }
   
   .btn {
-    align-self: flex-end;
+    align-self: center;
     margin-right: 3rem;
     font-size: 1rem;
     padding: 0.5rem;
@@ -106,3 +106,4 @@
     border-radius: 6px;
     border-style: double;
   }
+
