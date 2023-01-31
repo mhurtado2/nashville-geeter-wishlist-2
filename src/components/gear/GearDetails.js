@@ -25,6 +25,8 @@ export const GearDetails = () => {
     <div className="gear-details">Type: {gear?.type?.name}</div>
     <div className="gear-details">Current Used By: {gear?.artistUsingGear}</div>
     <div className="gear-details">Price: {gear?.price}</div>
+    <iframe width="560" height="315" src={gear?.demonstration} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
     </div>
       )
   
