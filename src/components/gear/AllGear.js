@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 
 export const AllGear = ( {searchTermState} ) => {
   const [gears, setGear] = useState([]) // returns an array: [stateVariable, setStatefunction] takes one argument: the initial value of the state variable
   const [filteredGear, setFiltered] = useState([]);
   const navigate = useNavigate()
+
+  const { gearId } = useParams()
 
   useEffect(() => {
     const searchedGear = gears.filter((gear) => {
@@ -42,6 +44,7 @@ export const AllGear = ( {searchTermState} ) => {
               }}
             />
             <div className="gear-name">{gearObj.name}</div>
+            <button onClick={() => navigate(`edit/${gearObj.id}`)}>Edit</button>
           </div>
         )
       })}
