@@ -115,3 +115,15 @@
     border-style: double;
   }
 
+.searched {
+    position: relative;
+    left: 90%;
+    background-color: rgb(197, 63, 63);
+    color: black;
+    height: 30px;
+    border-radius: 1rem;
+    padding: .5rem;
+    box-shadow: 1px 3px 4px grey;
+    width: 150px;
+    text-align: center;
+}

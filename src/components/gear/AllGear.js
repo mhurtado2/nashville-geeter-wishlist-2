@@ -1,12 +1,21 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-export const AllGear = () => {
+export const AllGear = ( {searchTermState} ) => {
   const [gears, setGear] = useState([]) // returns an array: [stateVariable, setStatefunction] takes one argument: the initial value of the state variable
+  const [filteredGear, setFiltered] = useState([]);
   const navigate = useNavigate()
 
   useEffect(() => {
-    console.log('I only run once')
+    const searchedGear = gears.filter((gear) => {
+      return gear.name
+        .toLowerCase()
+        .startsWith(searchTermState.toLowerCase());
+    });
+    setGear(searchedGear);
+  }, [searchTermState]);
+
+  useEffect(() => {
     fetch(`http://localhost:8088/gears`)
       .then((res) => res.json())
       .then((gearArray) => {
@@ -19,6 +28,7 @@ export const AllGear = () => {
   }
 
   return (
+
     <div className="gear-container">
       {gears.map((gearObj) => {
         return (
@@ -36,5 +46,5 @@ export const AllGear = () => {
         )
       })}
     </div>
-  )
+    )
 }
