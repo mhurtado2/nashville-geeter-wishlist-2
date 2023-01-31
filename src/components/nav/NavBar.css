@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Righteous&display=swap");
 
 .navbar {
     display: flex;
@@ -22,9 +23,9 @@
   }
   
   .navbar__link {
-    text-decoration: none;
+    text-decoration: wavy;
+    font-family: 'Righteous', cursive;
     color: black;
-    font-family: monospace;
     font-size: 1.25rem;
   }
   
@@ -36,4 +37,8 @@
     width: 5rem;
     text-decoration: none;
     border-radius: 30px;
+  }
+  
+  li {
+    font-family: 'Righteous', cursive;
   }

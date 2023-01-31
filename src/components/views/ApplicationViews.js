@@ -1,7 +1,10 @@
 import { Outlet, Route, Routes } from 'react-router-dom'
+import { AccessoryGear } from '../gear/AccessoryGear'
 import { AllGear } from '../gear/AllGear'
+import { AmpGear } from '../gear/AmpGear'
 import { GearDetails } from '../gear/GearDetails'
 import { GuitarGear } from '../gear/GuitarGear'
+import { PedalGear } from '../gear/PedalGear'
 
 
 
@@ -20,7 +23,9 @@ export const ApplicationViews = () => {
         <Route index element={<AllGear />} />
         <Route path="/:gearId" element={<GearDetails />} />
         <Route path="guitars" element={<GuitarGear />} />
-        <Route path="guitars/:gearId" element={<GearDetails />} />
+        <Route path="pedals" element={<PedalGear />} />
+        <Route path="amps" element={<AmpGear />} />
+        <Route path="accessories" element={<AccessoryGear />} />
       </Route>
     </Routes>
   )
