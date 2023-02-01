@@ -73,7 +73,14 @@ export const NewGearForm = () => {
 
     return (
         <form className="GearForm">
+            <div className="newGearFlex">
             <h3 className="gearForm__title">New Gear</h3>
+            <img
+          className="rock__img"
+          src="https://media0.giphy.com/media/dXinZcsNo3M68UnYWo/giphy.gif?cid=6c09b952nh1cco7pnsbmw4ntfl0kg7e7vnn84fiyoihybxay&rid=giphy.gif&ct=s"
+          alt="Rock and Roll Logo"
+        />
+            </div>
             <fieldset>
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>
@@ -184,7 +191,7 @@ export const NewGearForm = () => {
             </fieldset>
             <fieldset>
         <div className="form-group">
-          <div>Type: </div>
+          <div className="typeLabel">Type: </div>
           {types.map((typeObj) => {
             return (
               <div key={typeObj.id} className="radio">

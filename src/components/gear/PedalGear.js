@@ -6,7 +6,6 @@ export const PedalGear = () => {
 
 
   useEffect(() => {
-    console.log('I only run once')
     fetch(`http://localhost:8088/gears?typeId=2`)
       .then((res) => res.json())
       .then((gearArray) => {

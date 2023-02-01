@@ -6,7 +6,6 @@ export const AmpGear = () => {
 
 
   useEffect(() => {
-    console.log('I only run once')
     fetch(`http://localhost:8088/gears?typeId=3`)
       .then((res) => res.json())
       .then((gearArray) => {
