@@ -184,7 +184,7 @@ export const GearEdit = () => {
 
       <fieldset>
 <div className="form-group">
-  <div>Type: </div>
+  <div className="typeLabel">Type: </div>
 
     <label>
       <textarea
