@@ -13,10 +13,9 @@ export const GearEdit = () => {
     price: "",
   });
 
-  //const {types, updateType} = useState([])
+  const [ types, updateType ] = useState([]);
 
   const { gearId } = useParams();
-  //const { types } = useParams()
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -27,44 +26,35 @@ export const GearEdit = () => {
       });
   }, [gearId]);
 
-//   useEffect(() => {
-//       fetch(`http://localhost:8088/types/${type.type}`)
-//         .then((res) => res.json())
-//         .then((typeData) => {
-//           updateGear(typeData)
-//         })
-
-//     }, [types])
+  useEffect(() => {
+    fetch("http://localhost:8088/types")
+      .then((res) => res.json())
+      .then((typeData) => {
+        updateType(typeData);
+      });
+  }, []);
 
   const handleSaveButtonClick = (event) => {
     event.preventDefault();
 
-    return fetch(`http://localhost:8088/gears/${gear.id}`, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(gear),
-    })
-      .then((response) => response.json())
-
-    //  fetch(`http://localhost:8088/types/${type.type}`, {
-    //   method: "PUT",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: JSON.stringify(gear),
-    // })
-    //   .then((response) => response.json())
-    
-      .then(() => {
-        navigate("/");
-      });
+    return (
+      fetch(`http://localhost:8088/gears/${gear.id}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(gear),
+      })
+        .then((response) => response.json())
+        .then(() => {
+          navigate("/");
+        })
+    );
   };
 
   return (
     <form className="GearForm">
-      <h3 className="gearForm__title">Edit Gear</h3>
+      <h3 className="gearForm__title"></h3>
       <fieldset>
         <div className="form-group">
           <label htmlFor="name">Name:</label>
@@ -181,29 +171,32 @@ export const GearEdit = () => {
           </textarea>
         </div>
       </fieldset>
-
+ 
       <fieldset>
-<div className="form-group">
+      <div className="form-group">
   <div className="typeLabel">Type: </div>
-
-    <label>
-      <textarea
-        type="number"
-        value={gear.typeId}
-        onChange={(event) => {
-          const copy = { ...gear };
-          copy.typeId = event.target.value;
-          updateGear(copy);
-        }}
-      >
-        {gear.typeId}
-      </textarea>
-      <div>guitar = 1, pedal = 2, amp = 3  </div>
-    </label> 
+  {types.map((typeObj) => {
+    return (
+      <div key={typeObj.id} className="radio">
+        <label>
+          <input
+            type="radio"
+            value={typeObj.id}
+            checked={gear.typeId === typeObj.id}
+            onChange={(event) => {
+              const copy = { ...gear }
+              copy.typeId = parseInt(event.target.value)
+              updateGear(copy)
+            }}
+          />
+          {typeObj.type}
+        </label>
+      </div>
+    )
+  })}
 </div>
-</fieldset>
+</fieldset>  
 
-      
       <fieldset>
         <div className="form-group">
           <label htmlFor="price">Price:</label>
@@ -233,51 +226,45 @@ export const GearEdit = () => {
   );
 };
 
+{/* <fieldset>
+<div className="form-group">
+  <div className="typeLabel">Type: </div>
 
-//  <fieldset>
-// <div className="form-group">
-//   <div>Type: </div>
-
-//     <label>
-//       <textarea
-//         type="number"
-//         value={gear.typeId}
-//         onChange={(event) => {
-//           const copy = { ...gear };
-//           copy.typeId = event.target.value;
-//           updateGear(copy);
-//         }}
-//       >
-//         {gear.typeId}
-//       </textarea>
-//       <div>guitar = 1, pedal = 2, amp = 3  </div>
-//     </label> 
-// </div>
-// </fieldset>
+    <label>
+      <input
+        type="text"
+        value={gear.typeId}
+        onChange={(event) => {
+          const copy = { ...gear };
+          copy.typeId = event.target.value;
+          updateGear(copy);
+        }}
+      />
+    </label>
+</div>
+</fieldset> */}
 
 
+{/* <div className="form-group">
+  <div>Type: </div>
+  {types.map((typeObj) => {
+    return (
+      <div key={typeObj.id} className="radio">
+        <label>
+          <input
+            type="radio"
+            value={typeObj.id}
+            checked={gear.typeId === typeObj.id}
+            onChange={(event) => {
+              const copy = { ...gear }
+              copy.typeId = parseInt(event.target.value)
+              updateGear(copy)
+            }}
+          />
+          {typeObj.type}
+        </label>
+      </div>
+    )
+  })}
+</div> */}
 
-// <fieldset>
-// <div className="form-group">
-//   <div>Type: </div>
-//   {types.map((typeObj) => {
-//     return (
-//       <div key={typeObj.id} className="radio">
-//         <label>
-//           <input
-//             type="radio"
-//             value={typeObj.id}
-//             checked={gear.typeId === typeObj.id}
-//             onChange={(event) => {
-//               const copy = { ...gear }
-//               copy.typeId = parseInt(event.target.value)
-//               updateGear(copy)
-//             }}
-//           />
-//           {typeObj.type}
-//         </label>
-//       </div>
-//     )
-//   })}
-// </div>
-// </fieldset>

@@ -4,11 +4,11 @@ import { Gear } from "./Gear";
 
 export const AllGear = ({ searchTermState }) => {
   const [gears, setGear] = useState([]); // returns an array: [stateVariable, setStatefunction] takes one argument: the initial value of the state variable
-  const [filteredGear, setFiltered] = useState([]);
+  //const [filteredGear, setFiltered] = useState([]);
   const navigate = useNavigate();
-  const [users, setUsers] = useState([])
+  //const [users, setUsers] = useState([])
 
-  const { gearId } = useParams();
+  //const { gearId } = useParams();
 
   const localWishListUser = localStorage.getItem("wishlist_user");
   const wishListUserObject = JSON.parse(localWishListUser);
@@ -65,9 +65,9 @@ export const AllGear = ({ searchTermState }) => {
       />
       <div className="gear-name">{gearObj.name}</div>
       <div>
-      <button onClick={() => navigate(`edit/${gearObj.id}`)}>Edit</button>
+      <button className="edit-btn" onClick={() => navigate(`edit/${gearObj.id}`)}>Edit</button>
       
-        {wishListUserObject.admin ? (
+        {wishListUserObject.admin || wishListUserObject.id === gearObj.userId ? (
           
           <button
           onClick={() => {
@@ -79,32 +79,12 @@ export const AllGear = ({ searchTermState }) => {
           }}
           className="gear_delete"
         >
-          Delete{" "}
+          X{" "}
         </button>
       
         )
         :(
             <></>
-        )}
-
-{wishListUserObject.id === gears.userId ? (
-          
-          <button
-          onClick={() => {
-            fetch(`http://localhost:8088/gears/${gearObj.id}`, {
-              method: "DELETE",
-            }).then(() => {
-              getAllGear();
-            });
-          }}
-          className="gear_delete"
-        >
-          Delete{" "}
-        </button>
-      
-        )
-        :(
-            ""
         )}
       
       </div>

@@ -21,10 +21,14 @@ export const GearDetails = () => {
     <div className="gear-detail-container">
     <h3 className="gear-detail-name">{gear?.name}</h3>
     <img src={gear?.imageUrl} alt={gear?.name} className="gear-img" />
+    <div className='details-div'>
+    <div>
     <div className="gear-details">{gear?.description}</div>
     <div className="gear-details">Currently Used By: {gear?.artistUsingGear}</div>
     <div className="gear-details">Price: {gear?.price}</div>
-    <iframe width="560" height="315" src={gear?.demonstration} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+    <iframe className="youtubeVideo" width="560" height="315" src={gear?.demonstration} title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
 
     </div>
       )
