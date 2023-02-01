@@ -6,6 +6,7 @@ export const AllGear = ({ searchTermState }) => {
   const [gears, setGear] = useState([]); // returns an array: [stateVariable, setStatefunction] takes one argument: the initial value of the state variable
   const [filteredGear, setFiltered] = useState([]);
   const navigate = useNavigate();
+  const [users, setUsers] = useState([])
 
   const { gearId } = useParams();
 
@@ -26,6 +27,14 @@ export const AllGear = ({ searchTermState }) => {
         setGear(gearArray);
       });
   }, []); // An empty dependency array will watch for the initial render of the component and only run the callback on that  initial run.
+
+//   useEffect(() => {
+//     fetch(`http://localhost:8088/users`)
+//       .then((res) => res.json())
+//       .then((userArray) => {
+//         setUsers(userArray);
+//       });
+//   }, []);
 
   const navigateToGearDetails = (gearId) => {
     navigate(`/${gearId}`);
@@ -58,7 +67,7 @@ export const AllGear = ({ searchTermState }) => {
       <div>
       <button onClick={() => navigate(`edit/${gearObj.id}`)}>Edit</button>
       
-        {localWishListUser.id === gears.userId ? (
+        {wishListUserObject.admin ? (
           
           <button
           onClick={() => {
@@ -76,6 +85,26 @@ export const AllGear = ({ searchTermState }) => {
         )
         :(
             <></>
+        )}
+
+{wishListUserObject.id === gears.userId ? (
+          
+          <button
+          onClick={() => {
+            fetch(`http://localhost:8088/gears/${gearObj.id}`, {
+              method: "DELETE",
+            }).then(() => {
+              getAllGear();
+            });
+          }}
+          className="gear_delete"
+        >
+          Delete{" "}
+        </button>
+      
+        )
+        :(
+            ""
         )}
       
       </div>
