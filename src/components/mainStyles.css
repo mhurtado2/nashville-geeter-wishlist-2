@@ -212,3 +212,19 @@ button {
     display: flex;
     justify-content: center;
 }
+
+.GearForm {
+
+}
+
+.smallerFieldSet {
+  width: 90%;
+  margin: .5rem;
+  border-radius: 9px;
+  box-shadow: 2px 2px 5px -1px grey;
+  border-style: none;
+  background-color: whitesmoke;
+  font-size: 1.10rem;
+  padding: .5rem;
+}
+

@@ -55,7 +55,7 @@ export const GearEdit = () => {
   return (
     <form className="GearForm">
       <h3 className="gearForm__title"></h3>
-      <fieldset>
+      <fieldset className="smallerFieldSet">
         <div className="form-group">
           <label htmlFor="name">Name:</label>
           <textarea
@@ -75,7 +75,7 @@ export const GearEdit = () => {
           </textarea>
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className="smallerFieldSet">
         <div className="form-group">
           <label htmlFor="imageUrl">Image:</label>
           <textarea
@@ -95,7 +95,7 @@ export const GearEdit = () => {
           </textarea>
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className="smallerFieldSet">
         <div className="form-group">
           <label htmlFor="brand">Brand:</label>
           <textarea
@@ -114,7 +114,7 @@ export const GearEdit = () => {
           </textarea>
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className="smallerFieldSet">
         <div className="form-group">
           <label htmlFor="description">Description:</label>
           <textarea
@@ -133,7 +133,7 @@ export const GearEdit = () => {
           </textarea>
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className="smallerFieldSet">
         <div className="form-group">
           <label htmlFor="artistUsing">Artist That Uses This Gear :</label>
           <textarea
@@ -152,7 +152,7 @@ export const GearEdit = () => {
           </textarea>
         </div>
       </fieldset>
-      <fieldset>
+      <fieldset className="smallerFieldSet">
         <div className="form-group">
           <label htmlFor="demonstration">Demonstration:</label>
           <textarea
@@ -172,7 +172,7 @@ export const GearEdit = () => {
         </div>
       </fieldset>
  
-      <fieldset>
+      <fieldset className="smallerFieldSet" id="centerThis">
       <div className="form-group">
   <div className="typeLabel">Type: </div>
   {types.map((typeObj) => {
@@ -197,7 +197,7 @@ export const GearEdit = () => {
 </div>
 </fieldset>  
 
-      <fieldset>
+      <fieldset className="smallerFieldSet">
         <div className="form-group">
           <label htmlFor="price">Price:</label>
           <textarea

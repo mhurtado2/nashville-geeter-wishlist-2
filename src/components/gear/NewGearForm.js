@@ -81,7 +81,7 @@ export const NewGearForm = () => {
           alt="Rock and Roll Logo"
         />
             </div>
-            <fieldset>
+            <fieldset className="smallerFieldSet">
                 <div className="form-group">
                     <label htmlFor="name">Name:</label>
                     <input
@@ -99,7 +99,7 @@ export const NewGearForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset className="smallerFieldSet">
                 <div className="form-group">
                     <label htmlFor="imageUrl">Image:</label>
                     <input
@@ -117,7 +117,7 @@ export const NewGearForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset className="smallerFieldSet">
                 <div className="form-group">
                     <label htmlFor="brand">Brand:</label>
                     <input
@@ -135,7 +135,7 @@ export const NewGearForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset className="smallerFieldSet">
                 <div className="form-group">
                     <label htmlFor="description">Description:</label>
                     <input
@@ -153,7 +153,7 @@ export const NewGearForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset className="smallerFieldSet">
                 <div className="form-group">
                     <label htmlFor="artistUsing">Artist That Uses This Gear :</label>
                     <input
@@ -171,7 +171,7 @@ export const NewGearForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset className="smallerFieldSet">
                 <div className="form-group">
                     <label htmlFor="demonstration">Demonstration:</label>
                     <input
@@ -189,7 +189,7 @@ export const NewGearForm = () => {
                         } />
                 </div>
             </fieldset>
-            <fieldset>
+            <fieldset className="smallerFieldSet">
         <div className="form-group">
           <div className="typeLabel">Type: </div>
           {types.map((typeObj) => {
@@ -213,7 +213,7 @@ export const NewGearForm = () => {
           })}
         </div>
       </fieldset>
-            <fieldset>
+            <fieldset className="smallerFieldSet">
                 <div className="form-group">
                     <label htmlFor="price">Price:</label>
                     <input

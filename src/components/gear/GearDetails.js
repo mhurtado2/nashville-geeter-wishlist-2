@@ -8,7 +8,7 @@ export const GearDetails = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:8088/gears/${gearId}?_expand=type`
+      `http://localhost:8088/gears/${gearId}?_expand=type` 
     )
       .then((res) => res.json())
       .then((gearData) => {
