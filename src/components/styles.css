@@ -195,6 +195,10 @@ button {
     border-radius: 5px;
 }
 
+.gear_delete:hover {
+    font-size: 1rem;
+}
+
 .edit-btn:hover {
     color: green;
     font-size: 1rem;

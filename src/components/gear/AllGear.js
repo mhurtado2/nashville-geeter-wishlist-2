@@ -28,13 +28,13 @@ export const AllGear = ({ searchTermState }) => {
       });
   }, []); // An empty dependency array will watch for the initial render of the component and only run the callback on that  initial run.
 
-//   useEffect(() => {
-//     fetch(`http://localhost:8088/users`)
-//       .then((res) => res.json())
-//       .then((userArray) => {
-//         setUsers(userArray);
-//       });
-//   }, []);
+  //   useEffect(() => {
+  //     fetch(`http://localhost:8088/users`)
+  //       .then((res) => res.json())
+  //       .then((userArray) => {
+  //         setUsers(userArray);
+  //       });
+  //   }, []);
 
   const navigateToGearDetails = (gearId) => {
     navigate(`/${gearId}`);
@@ -48,54 +48,60 @@ export const AllGear = ({ searchTermState }) => {
       });
   };
 
-
-
   return (
-<div className="gear-container">
-{gears.map((gearObj) => {
-  return (
-    <div className="item-card" key={gearObj.id}>
-      <img
-        src={gearObj.imageUrl}
-        alt={gearObj.name}
-        className="gear-img"
-        onClick={() => {
-          navigateToGearDetails(gearObj.id)
-        }}
-      />
-      <div className="gear-name">{gearObj.name}</div>
-      <div>
-      <button className="edit-btn" onClick={() => navigate(`edit/${gearObj.id}`)}>Edit</button>
-      
-        {wishListUserObject.admin || wishListUserObject.id === gearObj.userId ? (
-          
-          <button
-          onClick={() => {
-            fetch(`http://localhost:8088/gears/${gearObj.id}`, {
-              method: "DELETE",
-            }).then(() => {
-              getAllGear();
-            });
-          }}
-          className="gear_delete"
-        >
-          X{" "}
-        </button>
-      
-        )
-        :(
-            <></>
-        )}
-      
-      </div>
+    <div className="gear-container">
+      {gears.map((gearObj) => {
+        return (
+          <div className="item-card" key={gearObj.id}>
+            <img
+              src={gearObj.imageUrl}
+              alt={gearObj.name}
+              className="gear-img"
+              onClick={() => {
+                navigateToGearDetails(gearObj.id);
+              }}
+            />
+            <div className="gear-name">{gearObj.name}</div>
+            <div>
+              {wishListUserObject.admin ||
+              wishListUserObject.id === gearObj.userId ? (
+                <button
+                  className="edit-btn"
+                  onClick={() => navigate(`edit/${gearObj.id}`)}
+                >
+                  Edit
+                </button>
+              ) : (
+                <></>
+              )}
+
+              {wishListUserObject.admin ||
+              wishListUserObject.id === gearObj.userId ? (
+                <button
+                  onClick={() => {
+                    fetch(`http://localhost:8088/gears/${gearObj.id}`, {
+                      method: "DELETE",
+                    }).then(() => {
+                      getAllGear();
+                    });
+                  }}
+                  className="gear_delete"
+                >
+                  X{" "}
+                </button>
+              ) : (
+                <></>
+              )}
+            </div>
+          </div>
+        );
+      })}
     </div>
-  )
-})}
-</div> 
   );
 };
 
-{/* <div className="gear-container">
+{
+  /* <div className="gear-container">
 {gears.map((gearObj) => {
   return (
     <div className="item-card" key={gearObj.id}>
@@ -117,8 +123,8 @@ export const AllGear = ({ searchTermState }) => {
     </div>
   )
 })}
-</div>  */}
-
+</div>  */
+}
 
 //if you go the Gear.js route
 // {gears.map((gearObj) => {
@@ -130,3 +136,13 @@ export const AllGear = ({ searchTermState }) => {
 //     />;
 //   })}
 // </div>
+
+// {
+//   wishListUserObject.admin || wishListUserObject.id === gearObj.userId ? (
+//     <button className="edit-btn" onClick={() => navigate(`edit/${gearObj.id}`)}>
+//       Edit
+//     </button>
+//   ) : (
+//     <></>
+//   );
+// }

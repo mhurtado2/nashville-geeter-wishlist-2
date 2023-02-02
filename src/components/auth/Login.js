@@ -37,6 +37,7 @@ export const Login = () => {
           <h1>Nashville Geeter WishList</h1>
           <h3>Please sign in</h3>
           <div className="login-form">
+            <fieldset>
             <label className="email" htmlFor="inputEmail">
               {" "}
               Email address{" "}
@@ -50,6 +51,7 @@ export const Login = () => {
               required
               autoFocus
             />
+            </fieldset>
             <button className="submit" type="submit">
               Sign in
             </button>

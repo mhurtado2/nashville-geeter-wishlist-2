@@ -20,7 +20,7 @@ export const GearDetails = () => {
   return (
     <div className="gear-detail-container">
     <h3 className="gear-detail-name">{gear?.name}</h3>
-    {/* <img src={gear?.imageUrl} alt={gear?.name} className="gear-img" /> */}
+    <img src={gear?.imageUrl} alt={gear?.name} className="gear-img" />
     <div className='details-div'>
     <div>
     <div className="gear-details">{gear?.description}</div>
