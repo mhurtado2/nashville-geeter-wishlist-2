@@ -25,7 +25,7 @@ export const GearDetails = () => {
                 <div>
                 <div className="gear-details">{gear?.description}</div>
                 <div className="gear-details">Currently Used By: {gear?.artistUsingGear}</div>
-                <div className="gear-details">Price: {gear?.price}</div>
+                <div className="gear-details">Price: ${gear?.price}</div>
                 </div>
         </div>
     
