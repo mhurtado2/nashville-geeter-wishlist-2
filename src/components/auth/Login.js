@@ -37,7 +37,7 @@ export const Login = () => {
           <h1>Nashville Geeter WishList</h1>
           <h3>Please sign in</h3>
           <div className="login-form">
-            <fieldset>
+            <fieldset className="loginFieldSet">
             <label className="email" htmlFor="inputEmail">
               {" "}
               Email address{" "}
@@ -46,7 +46,7 @@ export const Login = () => {
               type="email"
               value={email}
               onChange={(evt) => set(evt.target.value)}
-              className="form-control"
+              className="form-control-login"
               placeholder="Email address"
               required
               autoFocus
