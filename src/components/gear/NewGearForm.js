@@ -1,5 +1,7 @@
 import { useState,useEffect } from "react"
 import { useNavigate } from "react-router-dom"
+import { Form, Label, Input, FormGroup } from "reactstrap"
+
 
 export const NewGearForm = () => {
     /*
@@ -72,7 +74,7 @@ export const NewGearForm = () => {
     }
 
     return (
-        <form className="GearForm">
+        <Form className="GearForm">
             <div className="newGearFlex">
             <h3 className="gearForm__title"></h3>
             <img
@@ -82,9 +84,10 @@ export const NewGearForm = () => {
         />
             </div>
             <fieldset className="smallerFieldSet">
+       
                 <div className="form-group">
-                    <label htmlFor="name">Name:</label>
-                    <input
+                    <Label htmlFor="name">Name:</Label>
+                    <Input
                         required autoFocus
                         type="text"
                         className="form-control"
@@ -98,11 +101,12 @@ export const NewGearForm = () => {
                             }
                         } />
                 </div>
+
             </fieldset>
             <fieldset className="smallerFieldSet">
                 <div className="form-group">
-                    <label htmlFor="imageUrl">Image:</label>
-                    <input
+                    <Label htmlFor="imageUrl">Image:</Label>
+                    <Input
                         required autoFocus
                         type="text"
                         className="form-control"
@@ -119,8 +123,8 @@ export const NewGearForm = () => {
             </fieldset>
             <fieldset className="smallerFieldSet">
                 <div className="form-group">
-                    <label htmlFor="brand">Brand:</label>
-                    <input
+                    <Label htmlFor="brand">Brand:</Label>
+                    <Input
                         required autoFocus
                         type="text"
                         className="form-control"
@@ -137,8 +141,8 @@ export const NewGearForm = () => {
             </fieldset>
             <fieldset className="smallerFieldSet">
                 <div className="form-group">
-                    <label htmlFor="description">Description:</label>
-                    <input
+                    <Label htmlFor="description">Description:</Label>
+                    <Input
                         required autoFocus
                         type="text"
                         className="form-control"
@@ -155,8 +159,8 @@ export const NewGearForm = () => {
             </fieldset>
             <fieldset className="smallerFieldSet">
                 <div className="form-group">
-                    <label htmlFor="artistUsing">Artist That Uses This Gear :</label>
-                    <input
+                    <Label htmlFor="artistUsing">Artist That Uses This Gear :</Label>
+                    <Input
                         required autoFocus
                         type="text"
                         className="form-control"
@@ -173,8 +177,8 @@ export const NewGearForm = () => {
             </fieldset>
             <fieldset className="smallerFieldSet">
                 <div className="form-group">
-                    <label htmlFor="demonstration">Demonstration:</label>
-                    <input
+                    <Label htmlFor="demonstration">Demonstration:</Label>
+                    <Input
                         required autoFocus
                         type="text"
                         className="form-control"
@@ -195,8 +199,8 @@ export const NewGearForm = () => {
           {types.map((typeObj) => {
             return (
               <div key={typeObj.id} className="radio">
-                <label>
-                  <input
+                <Label>
+                  <Input 
                     type="radio"
                     value={typeObj.id}
                     checked={gear.typeId === typeObj.id}
@@ -206,8 +210,10 @@ export const NewGearForm = () => {
                       update(copy)
                     }}
                   />
+                
                   {typeObj.type}
-                </label>
+    
+                </Label>
               </div>
             )
           })}
@@ -215,8 +221,8 @@ export const NewGearForm = () => {
       </fieldset>
             <fieldset className="smallerFieldSet">
                 <div className="form-group">
-                    <label htmlFor="price">Price:</label>
-                    <input
+                    <Label htmlFor="price">Price:</Label>
+                    <Input
                         required autoFocus
                         type="number"
                         className="form-control"
@@ -237,6 +243,6 @@ export const NewGearForm = () => {
                 className="btn btn-primary">
                 Submit New Gear
             </button>
-        </form>
+        </Form>
     )
 }

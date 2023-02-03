@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import { Form, Label } from "reactstrap";
 
 export const GearEdit = () => {
   const [gear, updateGear] = useState({
@@ -53,11 +54,11 @@ export const GearEdit = () => {
   };
 
   return (
-    <form className="GearForm">
+    <Form className="GearForm">
       <h3 className="gearForm__title"></h3>
       <fieldset className="smallerFieldSet">
         <div className="form-group">
-          <label htmlFor="name">Name:</label>
+          <Label htmlFor="name">Name:</Label>
           <textarea
             required
             autoFocus
@@ -77,7 +78,7 @@ export const GearEdit = () => {
       </fieldset>
       <fieldset className="smallerFieldSet">
         <div className="form-group">
-          <label htmlFor="imageUrl">Image:</label>
+          <Label htmlFor="imageUrl">Image:</Label>
           <textarea
             required
             autoFocus
@@ -97,7 +98,7 @@ export const GearEdit = () => {
       </fieldset>
       <fieldset className="smallerFieldSet">
         <div className="form-group">
-          <label htmlFor="brand">Brand:</label>
+          <Label htmlFor="brand">Brand:</Label>
           <textarea
             required
             autoFocus
@@ -116,7 +117,7 @@ export const GearEdit = () => {
       </fieldset>
       <fieldset className="smallerFieldSet">
         <div className="form-group">
-          <label htmlFor="description">Description:</label>
+          <Label htmlFor="description">Description:</Label>
           <textarea
             required
             autoFocus
@@ -135,7 +136,7 @@ export const GearEdit = () => {
       </fieldset>
       <fieldset className="smallerFieldSet">
         <div className="form-group">
-          <label htmlFor="artistUsing">Artist That Uses This Gear :</label>
+          <Label htmlFor="artistUsing">Artist That Uses This Gear :</Label>
           <textarea
             required
             autoFocus
@@ -154,7 +155,7 @@ export const GearEdit = () => {
       </fieldset>
       <fieldset className="smallerFieldSet">
         <div className="form-group">
-          <label htmlFor="demonstration">Demonstration:</label>
+          <Label htmlFor="demonstration">Demonstration:</Label>
           <textarea
             required
             autoFocus
@@ -178,7 +179,7 @@ export const GearEdit = () => {
   {types.map((typeObj) => {
     return (
       <div key={typeObj.id} className="radio">
-        <label>
+        <Label>
           <input
             type="radio"
             value={typeObj.id}
@@ -190,7 +191,7 @@ export const GearEdit = () => {
             }}
           />
           {typeObj.type}
-        </label>
+        </Label>
       </div>
     )
   })}
@@ -199,7 +200,7 @@ export const GearEdit = () => {
 
       <fieldset className="smallerFieldSet">
         <div className="form-group">
-          <label htmlFor="price">Price:</label>
+          <Label htmlFor="price">Price:</Label>
           <textarea
             required
             autoFocus
@@ -222,49 +223,8 @@ export const GearEdit = () => {
       >
         Save Edits
       </button>
-    </form>
+    </Form>
   );
 };
 
-{/* <fieldset>
-<div className="form-group">
-  <div className="typeLabel">Type: </div>
-
-    <label>
-      <input
-        type="text"
-        value={gear.typeId}
-        onChange={(event) => {
-          const copy = { ...gear };
-          copy.typeId = event.target.value;
-          updateGear(copy);
-        }}
-      />
-    </label>
-</div>
-</fieldset> */}
-
-
-{/* <div className="form-group">
-  <div>Type: </div>
-  {types.map((typeObj) => {
-    return (
-      <div key={typeObj.id} className="radio">
-        <label>
-          <input
-            type="radio"
-            value={typeObj.id}
-            checked={gear.typeId === typeObj.id}
-            onChange={(event) => {
-              const copy = { ...gear }
-              copy.typeId = parseInt(event.target.value)
-              updateGear(copy)
-            }}
-          />
-          {typeObj.type}
-        </label>
-      </div>
-    )
-  })}
-</div> */}
 

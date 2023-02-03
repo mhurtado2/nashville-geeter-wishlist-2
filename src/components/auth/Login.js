@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { Label } from "reactstrap";
 import "./Login.css";
+
 
 export const Login = () => {
   const [email, set] = useState("mhurtado1@berklee.edu");
@@ -38,10 +40,10 @@ export const Login = () => {
           <h3>Please sign in</h3>
           <div className="login-form">
             <fieldset className="loginFieldSet">
-            <label className="email" htmlFor="inputEmail">
+            <Label className="email" htmlFor="inputEmail">
               {" "}
               Email address{" "}
-            </label>
+            </Label>
             <input
               type="email"
               value={email}
@@ -57,9 +59,7 @@ export const Login = () => {
             </button>
 
             <div className="btn-box">
-              <button className="link--register">
                 <Link to="/register">Not a member yet?</Link>
-              </button>
             </div>
           </div>
         </form>
@@ -67,3 +67,7 @@ export const Login = () => {
     </main>
   );
 };
+
+{/* <button className="link--register">
+<Link to="/register">Not a member yet?</Link>
+</button> */}

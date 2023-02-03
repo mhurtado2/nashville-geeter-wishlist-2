@@ -76,6 +76,8 @@ fieldset {
 .submit {
     font-family: 'Righteous', cursive;
     margin: 10px;
+    border-radius: 5px;
+    background-color:#EFBC3F;
 }
 
 .submit:hover {
@@ -90,9 +92,10 @@ fieldset {
 
 .link--register {
     color: red;
-    background-color: white;
-    width: 150px;
+    width: 200px;
     height: 24px;
+    border-radius: 5px;
+    /* background-color:#EFBC3F; */
 }
 
 .btn-box {

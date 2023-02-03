@@ -6,12 +6,12 @@
     justify-content: center;
     background-color: rgb(197, 63, 63);
     border-radius: 1rem;
-    padding: 1rem;
+    /* padding: 1rem; */
     box-shadow: 1px 3px 4px grey;
   }
   
   .navbar__item {
-    flex-basis: 20%;
+    flex-basis: 10%;
     list-style-type: none;
     text-align: center;
     margin: auto;
