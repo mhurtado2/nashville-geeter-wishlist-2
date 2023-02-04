@@ -20,12 +20,12 @@ export const GearDetails = () => {
   return (
     <div className="gear-detail-container">
         <h3 className="gear-detail-name">{gear?.name}</h3>
-        <div className='flexThis'>
+        {/* <div className='flexThis'> */}
           <div className='columnThisShit'>
             <div>
             <img src={gear?.imageUrl} alt={gear?.name} className="gear-img-2" />
             </div>
-        </div>
+        {/* </div> */}
                 <div className="detail-div">
                     <div className="gear-details">{gear?.description}</div>
                     <div className="gear-details">Currently Used By: {gear?.artistUsingGear}</div>
@@ -34,10 +34,10 @@ export const GearDetails = () => {
         </div>
     
 
-            <div className='details-div'>
+            {/* <div className='details-div'> */}
             {/* <img src="https://thumbs.gfycat.com/BouncyWeakIbisbill-size_restricted.gif" alt="waynesWorld" className="gear-img-2" /> */}
             <iframe className="youtubeVideo" width="560" height="315" src={gear?.demonstration} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen></iframe>
-            </div>
+            {/* </div> */}
     </div>
       )
   
