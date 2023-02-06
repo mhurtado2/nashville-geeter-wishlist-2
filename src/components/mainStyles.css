@@ -165,6 +165,7 @@ label {
 
 .rock__img {
     width: 200px;
+    border-radius: 10px;
 }
 .newGearFlex {
     display: flex;
@@ -298,4 +299,31 @@ button {
 
 button.btn-primary {
   background-color: rgb(197, 63, 63);
+}
+
+.smallestFieldSet {
+  width: 60%;
+  align-self: flex-start;
+  margin: 10px;
+}
+
+.btn-blog {
+ position: relative;
+ right: 30%;
+}
+
+
+.editFieldSet {
+  width: 40%;
+  align-self: flex-start;
+  margin: 10px;
+  height: 500px;
+}
+
+.form-control-edit {
+  height: 400px;
+}
+
+.plsFlex {
+  display: flex;
 }

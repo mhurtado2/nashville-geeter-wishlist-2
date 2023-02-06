@@ -39,6 +39,11 @@ export const NavBar = () => {
           New Gear
         </Link>
       </li>
+      <li className="navbar__item">
+        <Link className="navbar__link" to="/blog">
+          Blog
+        </Link>
+      </li>
 
       {localStorage.getItem("wishlist_user") ? (
         <li className="navbar__item navbar__logout">

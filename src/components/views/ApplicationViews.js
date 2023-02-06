@@ -1,4 +1,5 @@
 import { Outlet, Route, Routes } from "react-router-dom";
+import { Blog, BlogComments } from "../blog/Blog";
 import { AccessoryGear } from "../gear/AccessoryGear";
 import { AmpGear } from "../gear/AmpGear";
 import { GearEdit } from "../gear/EditGear";
@@ -28,6 +29,8 @@ export const ApplicationViews = () => {
         <Route path="amps" element={<AmpGear />} />
         <Route path="accessories" element={<AccessoryGear />} />
         <Route path="new" element={<NewGearForm />} />
+        <Route path="blog" element={<Blog />} /> 
+        {/* <Route path="blog" element={<BlogComments />} />  */}
       </Route>
     </Routes>
   );
