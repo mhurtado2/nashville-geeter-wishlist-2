@@ -23,9 +23,11 @@ export const GuitarGear = () => {
               alt={gearObj.name}
               className="gear-img"
             />
-            <div className="gear-name">{gearObj.name}</div>
-            <div className="gear-name">${gearObj.price}</div>
-            <div className="gear-name">{gearObj.brand}</div>
+            <div className='card'>
+              <div className="gear-name">{gearObj.name}</div>
+              <div className="gear-name">${gearObj.price}</div>
+              <div className="gear-name">{gearObj.brand}</div>
+            </div>
           </div>
         )
       })}

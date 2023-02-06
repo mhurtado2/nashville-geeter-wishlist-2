@@ -210,8 +210,9 @@ export const NewGearForm = () => {
                       update(copy)
                     }}
                   />
-                
+                <div className="flexyBoi">
                   {typeObj.type}
+                </div>
     
                 </Label>
               </div>

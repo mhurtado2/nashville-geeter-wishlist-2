@@ -17,10 +17,12 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     border-radius: 20px;
+    padding-bottom: 20px;
   }
   
-  .item-card:hover {
+  .item-card:hover .card{
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+   transform: translateY(-20%)
   }
 
   .gear-img {
@@ -37,15 +39,19 @@
   
   .gear-name {
     font-size: 1rem;
+    font-weight: bold;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    text-shadow: black 1px 0 10px;
+    color: black;
+    /* text-shadow: black 1px 0 10px; */
+    background-color: #EFBC3F ;
     margin: 10px;
+    border-radius: 10px;
   }
   
   
   .gear-detail-container {
     text-align: center;
+    margin: 20px;
   }
   
   .gear-detail-name {
@@ -140,7 +146,7 @@ border: 1px red;
     border-radius: 9px;
     box-shadow: 2px 2px 5px -1px grey;
     border-style: none;
-    background-color: whitesmoke;
+    background-color: rgb(238, 131, 131);
     font-size: 1.10rem;
     padding: 1rem;
     font-size: 1rem;
@@ -175,7 +181,7 @@ label {
 
 button {
     margin: 10px;
-    font-family: 'Righteous', cursive;  
+    font-family: 'Righteous', cursive; 
 }
 
 
@@ -202,15 +208,23 @@ button {
 
 .youtubeVideo {
     border-radius: 20px;
-    /* position: relative;
-    left: 28%; */
+    position: relative;
+    top: 30px;
 }
 
-.detail-div {
-  position: relative;
-  left: 37%;
-  width: 300px;
-}
+ .detail-div {
+ background-color: rgb(197, 63, 63);
+  width: 425px;
+  border-radius: 20px;
+} 
+
+.video-div {
+  background-color: rgb(197, 63, 63);;
+   border-radius: 20px;
+   height: 350px;
+   width: 35%;
+   align-self: center;
+ } 
 
 .wanyesWorld {
   border-radius: 20px;
@@ -218,9 +232,12 @@ button {
 
 .details-div {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    margin: 20px;
+    margin-top: 50px;
+    /* background-color: rgb(197, 63, 63); */
+    border-radius: 20px;
+
 }
 
 .flexThis {
@@ -254,3 +271,31 @@ button {
   border-radius: 20px;
 }
 
+.columnThisStuff {
+  margin: 20px;
+}
+
+
+.cardLine {
+  border-top: 2px solid rgb(197, 63, 63);
+  width: 98%;
+  padding-top: 10px;
+}
+
+.card {
+  text-align: center;
+  width: 200px;
+  border-radius: 10px;
+  transition: transform .5s linear;
+  font-family: 'Righteous', cursive;
+  border: 5px solid red;
+}
+
+.form-group {
+  display: flex;
+  justify-content: space-between;
+}
+
+button.btn-primary {
+  background-color: rgb(197, 63, 63);
+}

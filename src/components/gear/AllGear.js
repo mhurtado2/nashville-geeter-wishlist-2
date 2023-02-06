@@ -66,6 +66,7 @@ export const AllGear = ({ searchTermState }) => {
               }}
             />
             <div className="gear-name">{gearObj.name}</div>
+            <div className="cardLine"></div>
             <div>
               {wishListUserObject.admin ||
               wishListUserObject.id === gearObj.userId ? (
