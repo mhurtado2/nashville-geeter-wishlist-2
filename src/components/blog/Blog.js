@@ -5,6 +5,8 @@ export const Blog = () => {
   const [blogs, setBlog] = useState([]);
   const [gears, setGear] = useState([]);
 
+  const localWishListUser = localStorage.getItem("wishlist_user");
+  const wishListUserObject = JSON.parse(localWishListUser);
 
   useEffect(() => {
     fetch("http://localhost:8088/gears")
@@ -14,7 +16,6 @@ export const Blog = () => {
       });
   }, []);
 
-
   useEffect(() => {
     fetch("http://localhost:8088/blogs")
       .then((res) => res.json())
@@ -23,18 +24,47 @@ export const Blog = () => {
       });
   }, []);
 
+  const getAllBlogs = () => {
+    fetch(`http://localhost:8088/blogs`)
+      .then((res) => res.json())
+      .then((blogArray) => {
+        setBlog(blogArray);
+      });
+  };
+
   return (
-    <div className="blog-container">
+    <div className="gear-container">
       {blogs.map((blog) => {
         return (
-          <div className="item-card-blog" key={blog.id}>
-            <div className="blog">
-            <Link to={`/edit/${blog.gearId}`}>
-                 {blog.name}
-            </Link>
-              <div className="blog-name">{blog.edit}</div>
+          <>
+            <div className="item-card-blog" key={blog.id}>
+              <div className="blog">
+                <h3>Gear Item:</h3>
+                <Link to={`/edit/${blog.gearId}`}>{blog.name}</Link>
+                <h3> Message:</h3>
+                <div className="blog-name">{blog.edit}</div>
+               
+
+              {wishListUserObject.admin ? (
+                <button
+                  onClick={() => {
+                    fetch(`http://localhost:8088/blogs/${blog.id}`, {
+                      method: "DELETE",
+                    }).then(() => {
+                      getAllBlogs();
+                    });
+                  }}
+                  className="gear_delete"
+                >
+                  X{" "}
+                </button>
+              ) : (
+                <></>
+              )}
             </div>
-          </div>
+            </div>
+           
+          </>
         );
       })}
     </div>
