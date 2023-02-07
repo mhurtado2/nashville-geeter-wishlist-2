@@ -40,6 +40,11 @@ export const NavBar = () => {
         </Link>
       </li>
       <li className="navbar__item">
+        <Link className="navbar__link" to="/please">
+          Gear Edits
+        </Link>
+      </li>
+      <li className="navbar__item">
         <Link className="navbar__link" to="/blog">
           Blog
         </Link>

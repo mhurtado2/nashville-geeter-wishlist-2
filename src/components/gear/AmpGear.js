@@ -6,7 +6,7 @@ export const AmpGear = () => {
 
 
   useEffect(() => {
-    fetch(`http://localhost:8088/gears?typeId=3`)
+    fetch("http://localhost:8088/gears?typeId=3")
       .then((res) => res.json())
       .then((gearArray) => {
         setGear(gearArray)
