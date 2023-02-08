@@ -5,7 +5,7 @@ import { Form, Label, Input } from "reactstrap";
 export const PleaseEdit = () => {
   const [userChoices, update] = useState({
     gearName: "",
-    gearId: 0,
+    gearId: "",
     editNote: "",
   });
 
@@ -38,7 +38,7 @@ export const PleaseEdit = () => {
  
     const blogToSendToAPI = {
       userId: wishListUserObject.id,
-      // name: userChoices.gearName,
+      name: userChoices.gearName,
       gearId: userChoices.gearId,
       edit: userChoices.editNote,
     };
@@ -76,10 +76,10 @@ export const PleaseEdit = () => {
     required
     autoFocus
     className="form-control"
-     value={gears.id}
+     value={userChoices.gearName}
     onChange={(event) => {
       const copy = { ...userChoices };
-      copy.gearId = parseInt(event.target.value);
+      copy.gearName = event.target.value;
       update(copy);
     }}
   >
@@ -87,7 +87,7 @@ export const PleaseEdit = () => {
      {gears.map((gearObj) => {
        return (
          <option key={gearObj.id} value={gearObj.name}>
-           {gearObj.name} 
+           {gearObj.brand}: {gearObj.name} (Gear Id: {gearObj.id})
          </option>
        );
      })}
@@ -97,7 +97,7 @@ export const PleaseEdit = () => {
 
 
 
-           {/* <fieldset className="smallestFieldSet">
+            <fieldset className="smallestFieldSet">
                 <div className="form-group">
                     <Label htmlFor="GearId">Gear Id:</Label>
                     <Input
@@ -105,7 +105,7 @@ export const PleaseEdit = () => {
                         type="number"
                         className="form-control"
                         placeholder="Please Enter Id Of Gear"
-                        value={userChoices.gearId}
+                        value = {userChoices.gearId}
                         onChange={
                             (event) => {
                                 const copy = {...userChoices}
@@ -114,7 +114,7 @@ export const PleaseEdit = () => {
                             }
                         } />
                 </div>
-            </fieldset>   */}
+            </fieldset>   
 
 
         <fieldset className="editFieldSet">

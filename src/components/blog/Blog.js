@@ -36,14 +36,16 @@ export const Blog = () => {
     <div className="gear-container">
       {blogs.map((blog) => {
         return (
-          <>
-            <div className="item-card-blog" key={blog.id}>
-              <div className="blog">
-                <h3>Gear Item:</h3>
-                <Link to={`/edit/${blog.gearId}`}>{blog.name}</Link>
-                <h3> Message:</h3>
-                <div className="blog-name">{blog.edit}</div>
-               
+          <div className="item-card-blog" key={blog.id}>
+            <div className="blog">
+              <h3>Gear Item:</h3>
+              {wishListUserObject.admin  ? (
+                <Link to={`/edit/${blog.gearId}`}>{blog?.name}</Link>
+              ) : (
+                <>{blog.name}</>
+              )}
+              <h3> Message:</h3>
+              <div className="blog-name">{blog.edit}</div>
 
               {wishListUserObject.admin ? (
                 <button
@@ -62,9 +64,7 @@ export const Blog = () => {
                 <></>
               )}
             </div>
-            </div>
-           
-          </>
+          </div>
         );
       })}
     </div>
