@@ -324,6 +324,7 @@ button.btn-primary {
 
 .form-control-edit {
   height: 400px;
+  text-align: start;
 }
 
 .plsFlex {
