@@ -4,13 +4,12 @@ import { Form, Label, Input } from "reactstrap";
 
 export const PleaseEdit = () => {
   const [userChoices, update] = useState({
-    gearName: "",
-    gearId: "",
+    gearId: 0,
     editNote: "",
   });
 
   const [gears, setGear] = useState([]);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch("http://localhost:8088/gears?_sort=brand&_order=asc")
@@ -35,14 +34,12 @@ export const PleaseEdit = () => {
 
   const handleSaveButtonClick = (event) => {
     event.preventDefault();
- 
+
     const blogToSendToAPI = {
       userId: wishListUserObject.id,
-      name: userChoices.gearName,
       gearId: userChoices.gearId,
       edit: userChoices.editNote,
     };
-    // TODO: Perform the fetch() to POST the object to the API
     return fetch("http://localhost:8088/blogs", {
       method: "POST",
       headers: {
@@ -52,7 +49,7 @@ export const PleaseEdit = () => {
     })
       .then((response) => response.json())
       .then(() => {
-         navigate("/blog")
+        navigate("/blog");
       });
   };
 
@@ -68,54 +65,31 @@ export const PleaseEdit = () => {
           />
         </div>
 
-
-<fieldset className="smallestFieldSet">
-<div className="form-group">
-  <Label htmlFor="name">Name:</Label>
-  <select
-    required
-    autoFocus
-    className="form-control"
-     value={userChoices.gearName}
-    onChange={(event) => {
-      const copy = { ...userChoices };
-      copy.gearName = event.target.value;
-      update(copy);
-    }}
-  >
-     <option value="0">Gear Name</option>
-     {gears.map((gearObj) => {
-       return (
-         <option key={gearObj.id} value={gearObj.name}>
-           {gearObj.brand}: {gearObj.name} (Gear Id: {gearObj.id})
-         </option>
-       );
-     })}
-  </select>
-</div>
-</fieldset> 
-
-
-
-            <fieldset className="smallestFieldSet">
-                <div className="form-group">
-                    <Label htmlFor="GearId">Gear Id:</Label>
-                    <Input
-                        required autoFocus
-                        type="number"
-                        className="form-control"
-                        placeholder="Please Enter Id Of Gear"
-                        value = {userChoices.gearId}
-                        onChange={
-                            (event) => {
-                                const copy = {...userChoices}
-                                copy.gearId = parseInt(event.target.value)
-                                update(copy)
-                            }
-                        } />
-                </div>
-            </fieldset>   
-
+        <fieldset className="smallestFieldSet">
+          <div className="form-group">
+            <Label htmlFor="name">Gear Name:</Label>
+            <select
+              required
+              autoFocus
+              className="form-control"
+              value={gears.id}
+              onChange={(event) => {
+                const copy = { ...userChoices };
+                copy.gearId = parseInt(event.target.value);
+                update(copy);
+              }}
+            >
+              <option value="0">All Gear</option>
+              {gears.map((gearObj) => {
+                return (
+                  <option key={gearObj.id} value={gearObj.id}>
+                    {gearObj.brand}: {gearObj.name}
+                  </option>
+                );
+              })}
+            </select>
+          </div>
+        </fieldset>
 
         <fieldset className="editFieldSet">
           <div className="form-group">
@@ -146,67 +120,3 @@ export const PleaseEdit = () => {
     </div>
   );
 };
-
-
-// <fieldset className="smallestFieldSet">
-// <div className="form-group">
-//   <Label htmlFor="name">Name:</Label>
-//   <select
-//     required
-//     autoFocus
-//     className="form-control"
-//     // value={gears.id}
-//     value={gears.map((gear) => { 
-//       <option value="0">Gear Name</option>
-//       return (
-//         <option key={gearObj.id} value={gearObj.name}>
-//           {gearObj.name} 
-//         </option>
-//       );
-//     }}
-//     onChange={(event) => {
-//       const copy = { ...userChoices };
-//       copy.gearId = parseInt(event.target.value);
-//       update(copy);
-//     }}
-//   >
-//     // <option value="0">Gear Name</option>
-//     // {gears.map((gearObj) => {
-//     //   return (
-//     //     <option key={gearObj.id} value={gearObj.name}>
-//     //       {gearObj.name} 
-//     //     </option>
-//     //   );
-//     // })}
-//   </select>
-// </div>
-// </fieldset>
-
-
-// <fieldset className="smallestFieldSet">
-// <div className="form-group">
-//   <Label htmlFor="name">Name:</Label>
-//   <select
-//     required
-//     autoFocus
-//     className="form-control"
-//     // value={gears.id}
-//     value={gears.map((gear) => { 
-//       <option value="0">Gear Name</option>
-//     }}
-//     onChange={(event) => {
-//       const copy = { ...userChoices };
-//       copy.gearId = parseInt(event.target.value);
-//       update(copy);
-//     }}
-//   >
-  
-//   return (
-//     <option key={gear.id} value={gear.name}>
-//       {gear.name} 
-//     </option>
-//   );
-  
-//   </select>
-// </div>
-// </fieldset>

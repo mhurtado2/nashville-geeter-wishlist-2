@@ -9,28 +9,24 @@ export const Blog = () => {
   const wishListUserObject = JSON.parse(localWishListUser);
 
   useEffect(() => {
-    fetch("http://localhost:8088/gears?_sort=name&_order=asc")
+    fetch("http://localhost:8088/gears")
       .then((res) => res.json())
       .then((gearArray) => {
         setGear(gearArray);
       });
   }, []);
 
-  useEffect(() => {
-    fetch("http://localhost:8088/blogs")
-      .then((res) => res.json())
-      .then((blogArray) => {
-        setBlog(blogArray);
-      });
-  }, []);
-
   const getAllBlogs = () => {
-    fetch(`http://localhost:8088/blogs`)
+    fetch("http://localhost:8088/blogs?_expand=gear")
       .then((res) => res.json())
       .then((blogArray) => {
         setBlog(blogArray);
       });
   };
+  useEffect(() => {
+   getAllBlogs()
+  }, []);
+
 
   return (
     <div className="gear-container">
@@ -40,7 +36,7 @@ export const Blog = () => {
             <div className="blog">
               <h3>Gear Item:</h3>
               {wishListUserObject.admin  ? (
-                <Link to={`/blog/${blog.gearId}`}>{blog?.name}</Link>
+                <Link to={`/blog/${blog.gearId}`}>{blog?.gear?.name}</Link>
               ) : (
                 <>{blog.name}</>
               )}
