@@ -9,7 +9,7 @@ export const Blog = () => {
   const wishListUserObject = JSON.parse(localWishListUser);
 
   useEffect(() => {
-    fetch("http://localhost:8088/gears")
+    fetch("http://localhost:8088/gears?_sort=name&_order=asc")
       .then((res) => res.json())
       .then((gearArray) => {
         setGear(gearArray);

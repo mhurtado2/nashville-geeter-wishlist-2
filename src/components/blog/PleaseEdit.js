@@ -13,7 +13,7 @@ export const PleaseEdit = () => {
   const navigate = useNavigate()
 
   useEffect(() => {
-    fetch("http://localhost:8088/gears")
+    fetch("http://localhost:8088/gears?_sort=brand&_order=asc")
       .then((res) => res.json())
       .then((gearData) => {
         setGear(gearData);
