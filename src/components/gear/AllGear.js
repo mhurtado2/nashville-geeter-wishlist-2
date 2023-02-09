@@ -92,7 +92,7 @@ export const AllGear = ({ searchTermState }) => {
                   }}
                   className="gear_delete"
                 >
-                  X{" "}
+                  Delete{" "}
                 </button>
               ) : (
                 <></>
