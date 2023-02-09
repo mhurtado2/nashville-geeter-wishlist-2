@@ -54,7 +54,7 @@ export const Blog = () => {
                   }}
                   className="gear_delete"
                 >
-                  X{" "}
+                  Delete{" "}
                 </button>
               ) : (
                 <></>
