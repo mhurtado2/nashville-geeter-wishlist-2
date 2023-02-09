@@ -38,7 +38,7 @@ export const Blog = () => {
               {wishListUserObject.admin  ? (
                 <Link to={`/blog/${blog.gearId}`}>{blog?.gear?.name}</Link>
               ) : (
-                <>{blog.name}</>
+                <>{blog?.gear?.name}</>
               )}
               <h3> Message:</h3>
               <div className="blog-name">{blog.edit}</div>
