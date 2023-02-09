@@ -40,7 +40,12 @@ export const PleaseEdit = () => {
       gearId: userChoices.gearId,
       edit: userChoices.editNote,
     };
-    return fetch("http://localhost:8088/blogs", {
+    if (
+      userChoices.gearId &&
+      userChoices.editNote
+    )
+    {
+    fetch("http://localhost:8088/blogs", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -51,7 +56,12 @@ export const PleaseEdit = () => {
       .then(() => {
         navigate("/blog");
       });
+    }
+    else {
+      alert("Please fill out the whole form.");
+    }
   };
+
 
   return (
     <div className="centerThis">

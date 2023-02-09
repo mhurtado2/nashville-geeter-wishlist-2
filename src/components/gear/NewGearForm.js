@@ -4,10 +4,7 @@ import { Form, Label, Input, FormGroup } from "reactstrap"
 
 
 export const NewGearForm = () => {
-    /*
-        TODO: Add the correct default properties to the
-        initial state object
-    */
+
     const [gear, update] = useState({
         name: "",
         imageUrl: "",
@@ -20,10 +17,7 @@ export const NewGearForm = () => {
     })
 
     const [types, setType] = useState([])
-    /*
-        TODO: Use the useNavigation() hook so you can redirect
-        the user to the ticket list
-    */
+
    const navigate = useNavigate()
 
 
@@ -41,13 +35,7 @@ export const NewGearForm = () => {
 
     const handleSaveButtonClick = (event) => {
         event.preventDefault()
-        // TODO: Create the object to be saved to the API
-        // {
-        //     "userId": 3,
-        //     "description": "Saepe ex sapiente deserunt et voluptas fugiat vero quasi. Ipsam est non ipsa. Occaecati rerum ipsa consequuntur. Ratione commodi unde sint non rerum. Sit quia et aut sunt.",
-        //     "emergency": false,
-        //     "dateCompleted": "Fri Apr 29 2022 14:02:20 GMT-0500 (Central Daylight Time)"
-        //   }
+      
         const gearToSendToAPI = {
             userId: wishListUserObject.id,
             name: gear.name,
@@ -57,20 +45,33 @@ export const NewGearForm = () => {
             artistUsingGear: gear.artistUsingGear,
             demonstration: gear.demonstration,
             typeId: gear.typeId,
-            price: gear.price
-        }
-        // TODO: Perform the fetch() to POST the object to the API
-        return fetch('http://localhost:8088/gears', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(gearToSendToAPI)
-        })
-        .then(response => response.json())
-        .then(() => {
-             navigate("/")
-        })
+            price: gear.price,
+          };
+          if (
+            gear.name &&
+            gear.imageUrl &&
+            gear.brand &&
+            gear.description &&
+            gear.artistUsingGear &&
+            gear.demonstration &&
+            gear.typeId &&
+            gear.price
+          ) {
+            fetch("http://localhost:8088/gears", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(gearToSendToAPI),
+            })
+              .then((response) => response.json())
+              .then(() => {
+                navigate("/");
+              });
+          } else {
+            alert("Please fill out the whole form.");
+          }
+      
     }
 
     return (
