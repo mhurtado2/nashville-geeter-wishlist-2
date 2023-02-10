@@ -36,7 +36,7 @@ export const Login = () => {
     <main className="container--login">
       <section>
         <form className="form--login" onSubmit={handleLogin}>
-          <h1>Nashville Geeter WishList</h1>
+          <h1>The Nashville Geeter WishList</h1>
           <h3>Please sign in</h3>
           <div className="login-form">
             <fieldset className="loginFieldSet">
