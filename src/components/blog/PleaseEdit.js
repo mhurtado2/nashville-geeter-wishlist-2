@@ -68,11 +68,11 @@ export const PleaseEdit = () => {
       <Form className="GearFormEdit">
         <div className="newGearFlex">
           <h3 className="gearForm__title"></h3>
-          <img
+           {/* <img
             className="rock__img"
             src="https://media1.giphy.com/media/WpaVhEcp3Qo2TjwyI1/giphy.gif"
             alt="chandler saying no"
-          />
+          />  */}
         </div>
 
         <fieldset className="smallestFieldSet">

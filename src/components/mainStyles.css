@@ -360,3 +360,21 @@ button.btn-primary {
   padding-bottom: 20px;
   height: 250px;
 }
+
+.borderThis {
+  border: 3px solid rgb(197, 63, 63);
+  border-radius: 10px;
+  width: 70%;
+  background-color: rgb(246, 122, 122);
+}
+
+.insideBorder {
+  position: relative;
+  left: 4.3%;
+}
+
+.form-Btn {
+  margin-top: 10px;
+  position: relative;
+  left: 2%;
+}

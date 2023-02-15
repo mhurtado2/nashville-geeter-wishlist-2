@@ -84,6 +84,8 @@ export const NewGearForm = () => {
           alt="Rock and Roll Logo"
         />
             </div>
+            <div className="borderThis">
+            <div className="insideBorder">
             <fieldset className="smallerFieldSet">
        
                 <div className="form-group">
@@ -239,10 +241,12 @@ export const NewGearForm = () => {
                         } />
                 </div>
             </fieldset>
+            </div>
+            </div>
   
             <button 
                 onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-                className="btn btn-primary">
+                className="btn btn-primary form-Btn">
                 Submit New Gear
             </button>
         </Form>
