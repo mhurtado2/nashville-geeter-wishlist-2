@@ -383,3 +383,7 @@ button.btn-primary {
   position: relative;
   left: 2%;
 }
+
+.gear_delete {
+  margin-top: 10px;
+}
