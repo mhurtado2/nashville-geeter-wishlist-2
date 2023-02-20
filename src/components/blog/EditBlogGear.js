@@ -56,6 +56,8 @@ export const EditBlogGear = () => {
   return (
     <Form className="GearForm">
       <h3 className="gearForm__title"></h3>
+      <div className="borderThis">
+      <div className="insideBorder">
       <fieldset className="smallerFieldSet">
         <div className="form-group">
           <Label htmlFor="name">Name:</Label>
@@ -217,9 +219,12 @@ export const EditBlogGear = () => {
           </textarea>
         </div>
       </fieldset>
+      </div>
+      </div>
+
       <button
         onClick={(clickEvent) => handleSaveButtonClick(clickEvent)}
-        className="btn btn-primary"
+        className="btn btn-primary form-Btn"
       >
         Save Edits
       </button>
